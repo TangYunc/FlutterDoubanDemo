@@ -1,3 +1,4 @@
+import 'package:douban_demo/tabbar_item.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -40,15 +41,13 @@ class MyStackPageState extends State<MyStackPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         unselectedFontSize: 14,
+        type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text("首页")
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.more),
-              title: Text("更多")
-          )
+          TabbarItem("home", "首页"),
+          TabbarItem("patient", "书影音"),
+          TabbarItem("education", "小组"),
+          TabbarItem("miaoAcademy", "市集"),
+          TabbarItem("mine", "我的"),
         ],
         onTap: (int index) {
           setState(() {
