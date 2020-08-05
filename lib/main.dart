@@ -1,4 +1,9 @@
-import 'package:douban_demo/tabbar_item.dart';
+import 'package:douban_demo/components/tabbar_item.dart';
+import 'package:douban_demo/views/group/group.dart';
+import 'package:douban_demo/views/home/home.dart';
+import 'package:douban_demo/views/mall/mall.dart';
+import 'package:douban_demo/views/profile/profile.dart';
+import 'package:douban_demo/views/subject/subject.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -35,9 +40,6 @@ class MyStackPageState extends State<MyStackPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text("TYC"),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         unselectedFontSize: 14,
@@ -55,7 +57,16 @@ class MyStackPageState extends State<MyStackPage> {
           });
         },
       ),
-      body: Text("hello world"),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: <Widget>[
+          Home(),
+          Subject(),
+          Group(),
+          Mall(),
+          Profile()
+        ],
+      ),
     );
   }
 }
