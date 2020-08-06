@@ -56,7 +56,7 @@ class MovieListItem extends StatelessWidget {
             child: Text("内容显示")
         ),
         Text("分割线"),
-        Text("想看"),
+        getWishWidget(),
       ],
     );
   }
@@ -66,6 +66,20 @@ class MovieListItem extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(5),
         child: Image.network(item.imageURL, height: 150)
+    );
+  }
+  
+  //2.4 获取想看的Widget
+  Widget getWishWidget() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+      child: Column(
+        children: <Widget>[
+          Image.asset("assets/images/home/wish.png", width: 32),
+          SizedBox(height: 5),
+          Text("想看", style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 235, 170, 60)))
+        ],
+      ),
     );
   }
 
