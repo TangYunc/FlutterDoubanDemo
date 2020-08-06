@@ -18,12 +18,30 @@ class MovieListItem extends StatelessWidget {
 //        verticalDirection: VerticalDirection.down,
         crossAxisAlignment: CrossAxisAlignment.start,//水平（纵横交叉轴）方向，从左到右
         children: <Widget>[
-          Text("1"),
+          //1.电影排名
+          getRankWidget(),
           SizedBox(height: 12),//设置元素间（width水平方向，height垂直方向）间距
-          Text("2"),
+          //2.具体内容
+          getRankWidget(),
           SizedBox(height: 12),
-          Text("3"),
+          // 3.电影简介
+          getRankWidget(),
         ],
+      ),
+    );
+  }
+
+  Widget getRankWidget() {
+    return Container(
+//      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 9),//距离的方法
+      padding: EdgeInsets.fromLTRB(9, 4, 9, 4),//设置内边框距离的方法
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        color: Color.fromARGB(255, 238, 205, 144)
+      ),
+      child: Text(
+        "No.${item.rank}",
+        style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 131, 95, 36))
       ),
     );
   }
