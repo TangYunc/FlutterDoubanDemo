@@ -1,3 +1,4 @@
+import 'package:douban_demo/models/home_model.dart';
 import 'package:douban_demo/networking/http_request.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,8 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
 
+  List<MovieItem> movieItems = [];
+
   @override
   void initState() {
     // TODO: implement initState
@@ -31,12 +34,29 @@ class _HomeBodyState extends State<HomeBody> {
       final subjects = res.data["subjects"];
       print(subjects);
       print(subjects.runtimeType);
+
+      List<MovieItem> moviews = [];
+      for (var sub in subjects) {
+        moviews.add(MovieItem.fromMap(sub));
+      }
+      setState(() {
+        this.movieItems = moviews;
+      });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("首页", style: TextStyle(fontSize: 30, color: Colors.red)),
+      child: ListView.builder(
+        itemCount: movieItems.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              leading: Image.network(movieItems[index].imageURL),
+              title: Text(movieItems[index].title),
+            );
+          }
+      )
     );
   }
 }
