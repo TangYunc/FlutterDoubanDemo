@@ -10,6 +10,11 @@ class Person {
 
 class Actor extends Person {
   Actor.fromMap(Map<String, dynamic> json): super.fromMap(json);
+  @override
+  String toString() {
+    // TODO: implement toString
+    return name;
+  }
 }
 
 class Director extends Person {

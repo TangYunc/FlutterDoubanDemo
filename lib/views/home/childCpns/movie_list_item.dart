@@ -77,8 +77,8 @@ class MovieListItem extends StatelessWidget {
         child: Column(
           children: <Widget>[
             getMovieNameWidget(),
-            Text("评分"),
-            Text("电影简介")
+            getRattingWidget(),
+            getIntroductionWidget()
           ],
         ),
       ),
@@ -99,6 +99,25 @@ class MovieListItem extends StatelessWidget {
           )
         )
       ],
+    );
+  }
+
+  //2.2.2 获取电影评分的Widget
+  Widget getRattingWidget() {
+    return Text("评分");
+  }
+
+  //2.2.3 获取电影的简介Widget
+  Widget getIntroductionWidget() {
+    //拼接所有的 内容
+    final genereString = item.genres.join(" ");
+    final director = item.director.name;
+    final actorString = item.casts.join(" ");
+    return Text(
+      "$genereString / $director / $actorString",
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 16)
     );
   }
   
