@@ -68,6 +68,39 @@ class MovieListItem extends StatelessWidget {
         child: Image.network(item.imageURL, height: 150)
     );
   }
+
+  //2.2 获取描述的Widget
+  Widget getDetailDescWidget() {
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: <Widget>[
+            getMovieNameWidget(),
+            Text("评分"),
+            Text("电影简介")
+          ],
+        ),
+      ),
+    );
+  }
+
+  //2.2.1 获取电影名称的展示
+  Widget getMovieNameWidget() {
+    return Stack(
+      children: <Widget>[
+        Icon(Icons.play_circle_outline, color: Colors.red, size: 24),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(text: "      " + item.title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              TextSpan(text: "(${item.playDate})", style: TextStyle(fontSize: 18, color: Colors.black54))
+            ]
+          )
+        )
+      ],
+    );
+  }
   
   //2.4 获取想看的Widget
   Widget getWishWidget() {
