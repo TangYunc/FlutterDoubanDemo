@@ -25,12 +25,12 @@ class MovieListItem extends StatelessWidget {
           getRankWidget(),
           SizedBox(height: 12),
           // 3.电影简介
-          getRankWidget(),
+          getOriginWidget(),
         ],
       ),
     );
   }
-
+  //1.电影排名
   Widget getRankWidget() {
     return Container(
 //      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 9),//距离的方法
@@ -42,6 +42,22 @@ class MovieListItem extends StatelessWidget {
       child: Text(
         "No.${item.rank}",
         style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 131, 95, 36))
+      ),
+    );
+  }
+
+  //3.获取原始电影名称的Widget
+  Widget getOriginWidget() {
+    return Container(
+      padding: EdgeInsets.all(12),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Color(0xffeeeeee),
+        borderRadius: BorderRadius.circular(5)
+      ),
+      child: Text(
+        item.originalTitle,
+        style: TextStyle(fontSize: 18, color: Colors.black54),
       ),
     );
   }
