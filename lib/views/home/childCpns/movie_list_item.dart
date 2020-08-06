@@ -30,7 +30,7 @@ class MovieListItem extends StatelessWidget {
       ),
     );
   }
-  //1.电影排名
+  //1.获取电影排名的Widget
   Widget getRankWidget() {
     return Container(
 //      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 9),//距离的方法
@@ -43,6 +43,29 @@ class MovieListItem extends StatelessWidget {
         "No.${item.rank}",
         style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 131, 95, 36))
       ),
+    );
+  }
+
+  //2.获取中间的内容显示
+  Widget getMovieContent() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        getMovieImage(),
+        Expanded(
+            child: Text("内容显示")
+        ),
+        Text("分割线"),
+        Text("想看"),
+      ],
+    );
+  }
+
+  //2.1 获取显示的图片
+  Widget getMovieImage() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(5),
+        child: Image.network(item.imageURL, height: 150)
     );
   }
 
