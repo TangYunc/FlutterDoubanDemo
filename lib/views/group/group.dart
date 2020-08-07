@@ -1,3 +1,4 @@
+import 'package:douban_demo/components/star_rating.dart';
 import 'package:flutter/material.dart';
 
 class Group extends StatelessWidget {
@@ -8,7 +9,12 @@ class Group extends StatelessWidget {
         title: Text("小组"),
       ),
       body: Center(
-        child: Text("小组", style: TextStyle(fontSize: 30, color: Colors.pink)),
+        child: StarRating(
+          rating: 9,
+          selectedColor: Colors.orange,
+          size: 40,
+          count: 5,
+        )
       ),
     );
   }

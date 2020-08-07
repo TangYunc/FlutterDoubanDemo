@@ -1,4 +1,5 @@
 import 'package:douban_demo/components/dashed_line.dart';
+import 'package:douban_demo/components/star_rating.dart';
 import 'package:douban_demo/models/home_model.dart';
 import 'package:flutter/material.dart';
 
@@ -105,7 +106,16 @@ class MovieListItem extends StatelessWidget {
 
   //2.2.2 获取电影评分的Widget
   Widget getRattingWidget() {
-    return Text("评分");
+    return Row(
+      children: <Widget>[
+        StarRating(
+          rating: item.rating,
+          size: 20,
+          selectedColor: Colors.orange,
+        ),
+        Text("${item.rating}")
+      ],
+    );
   }
 
   //2.2.3 获取电影的简介Widget
