@@ -1,3 +1,4 @@
+import 'package:douban_demo/components/dashed_line.dart';
 import 'package:douban_demo/models/home_model.dart';
 import 'package:flutter/material.dart';
 
@@ -118,6 +119,20 @@ class MovieListItem extends StatelessWidget {
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(fontSize: 16)
+    );
+  }
+
+  //2.3 获取分割线的Widget
+  Widget getDashedWidget() {
+    return Container(
+      width: 1,
+      height: 80,
+      child: DashedLine(
+        axis: Axis.vertical,
+        dashedHeight: 5,
+        count: 12,
+        color: Color(0xffaaaaaa),
+      ),
     );
   }
   

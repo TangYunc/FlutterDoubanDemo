@@ -1,3 +1,4 @@
+import 'package:douban_demo/components/dashed_line.dart';
 import 'package:flutter/material.dart';
 
 class Subject extends StatelessWidget {
@@ -8,7 +9,17 @@ class Subject extends StatelessWidget {
         title: Text("书影音"),
       ),
       body: Center(
-        child: Text("书影音", style: TextStyle(fontSize: 30, color: Colors.orange)),
+        child: Container(
+          width: 300,
+          height: 200,
+          child: DashedLine(
+            axis: Axis.vertical,
+            dashedWidth: 1,
+            dashedHeight: 8,
+            count: 10,
+            color: Colors.red,
+          ),
+        )
       ),
     );
   }
